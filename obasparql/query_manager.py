@@ -495,7 +495,7 @@ class QueryManager:
         # Context (returned by the endpoint) does not contain information about the classes
         # so we must add it to the frame
         self.overwrite_endpoint_context(frame["@context"])
-        frame["@context"] = {**self.class_context, **frame["@context"]}
+        frame["@context"] = {**self.class_context, **self.context, **frame["@context"]}
 
         framed = jsonld.frame(
             {
